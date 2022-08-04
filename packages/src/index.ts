@@ -1,4 +1,5 @@
 import { App } from 'vue';
+import './style.scss'
 import Button from './button/index'
 
 export default {

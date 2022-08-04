@@ -1,9 +1,11 @@
 <template>
-    <button
-        :class="classes(
-            
-        )"
-        >
+    <button :class="[
+        ns.b(),
+        ns.m(size),
+        ns.m(type),
+        ns.is('text', text),
+        ns.is('round', round),
+    ]">
         <slot></slot>
     </button>
 </template>
@@ -15,18 +17,35 @@ export default {
 }
 </script>
 <script lang="ts" setup>
-import {createNamespace} from '../../utils/namespace'
+import { createNamespace, useNamespace } from '../../utils/namespace'
 import { defineProps } from 'vue'
 defineProps({
     size: {
         type: String,
-        default: 'small',
+        default: 'default',
+        required: false,
+    },
+    type: {
+        type: String,
+        default: '',
         required: false
-    }
+    },
+    text: {
+        type: Boolean,
+        default: false,
+        required: false
+    },
+    round: {
+        type: Boolean,
+        default: false,
+        required: false
+    },
 })
 
 
-const {n, classes} = createNamespace('btn')
+const { n, classes } = createNamespace('button')
+const ns = useNamespace('button')
+
 
 </script>
 

@@ -1,3 +1,124 @@
-button {
-    color: red;
+.simple-button {
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    &:hover {
+        background-color: rgb(238, 240, 255);
+        border-color: rgb(155, 161, 248);
+        color: #626aef;
+    }
+    &:active {
+        background-color: #bbbefa;
+    }
+    &.is-text {
+        border-color: #dcdfe6;
+        &:hover {
+            background-color: #dcdfe613;
+        }
+        &:active {
+            background-color: #dcdfe63a;
+        }
+    }
+}
+
+
+// size
+.simple-button--small {
+    font-size: 12px;
+    padding: 5px 11px;
+}
+
+.simple-button--default {
+    font-size: 14px;
+    padding: 8px 15px;
+}
+
+.simple-button--large {
+    font-size: 16px;
+    padding: 12px 19px;
+}
+
+
+// type
+.simple-button--primary {
+    background-color: #626aef;
+    color: #fff;
+    border-color: #626aef;
+    &:hover {
+        color: white;
+        background-color: #7c82f0;
+        border-color: #7c82f0;
+        outline: none;
+    }
+    &:active {
+        background-color: rgb(82, 89, 195);
+        border-color: rgb(82, 89, 195);
+    }
+    &.is-text {
+        background-color: transparent;
+        border-color: transparent;
+        color: #626aef;
+        &:hover {
+            background-color: #6269ef18;
+        }
+        &:active {
+            background-color: #6269ef43;
+        }
+    }
+}
+.simple-button--danger {
+    background-color: #f56c6c;
+    color: #fff;
+    border-color: #f56c6c;
+    &:hover {
+        color: white;
+        background-color: #f89898;
+        border-color: #f89898;
+        outline: none;
+    }
+    &:active {
+        background-color: #c45656;
+        border-color: #c45656;
+    }
+    &.is-text {
+        background-color: transparent;
+        border-color: transparent;
+        color: #f56c6c;
+        &:hover {
+            background-color: #f56c6c1a;
+        }
+        &:active {
+            background-color: #f56c6c4b;
+        }
+    }
+}
+
+.simple-button--success {
+    background-color: #67c23a;
+    color: #fff;
+    border-color: #67c23a;
+    &:hover {
+        color: white;
+        background-color: #95d475;
+        border-color: #95d475;
+        outline: none;
+    }
+    &:active {
+        background-color: #529b2e;
+        border-color: #529b2e;
+    }
+    &.is-text {
+        background-color: transparent;
+        border-color: transparent;
+        color: #67c23a;
+        &:hover {
+            background-color: #95d47516;
+        }
+        &:active {
+            background-color: #95d47547;
+        }
+    }
 }
