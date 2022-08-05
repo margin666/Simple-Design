@@ -65,31 +65,3 @@ export const useNamespace = (block: string) => {
     }
 }
 
-
-// 如果是string，直接使用，如果是tuple，第一项作为条件，后面两项作为class名
-type classType = (string | [any, string, string?])[]
-
-// 创建一个命名空间，返回一个生成class名的函数，以及生成多个classname的函数
-// 框架名-命名空间--后缀
-// classes => string/表达式
-export function createNamespace(name:string){
-    const namespace = 'simple-'+name
-    const createBEM = (suffix?:string) => {
-        if(!suffix)return namespace
-        return suffix.startsWith('--')?`${namespace}${suffix}`:`${namespace}__${suffix}`
-    }
-    const classes = (...classes:classType) => {
-        return classes.map(el => {
-            if(Array.isArray(el)){
-                const [condition, truthy,falsy=null] = el
-                return condition?truthy:falsy
-            }
-            return el
-        })
-    }
-    return {
-        n:createBEM,
-        classes
-
-    }
-}

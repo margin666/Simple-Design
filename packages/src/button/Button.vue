@@ -5,8 +5,13 @@
         ns.m(type),
         ns.is('text', text),
         ns.is('round', round),
-    ]">
-        <slot></slot>
+        ns.is('circle', circle),
+        ns.is('disabled', disabled),
+    ]" :aria-disabled="disabled" :disabled="disabled">
+        <span v-if="$slots.default">
+            <slot></slot>
+        </span>
+
     </button>
 </template>
 
@@ -17,8 +22,9 @@ export default {
 }
 </script>
 <script lang="ts" setup>
-import { createNamespace, useNamespace } from '../../utils/namespace'
-import { defineProps } from 'vue'
+import { useNamespace } from '../../utils/namespace'
+
+// import { defineProps } from 'vue'
 defineProps({
     size: {
         type: String,
@@ -40,15 +46,24 @@ defineProps({
         default: false,
         required: false
     },
+    circle: {
+        type: Boolean,
+        default: false,
+        required: false,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+        required: false
+    }
 })
 
 
-const { n, classes } = createNamespace('button')
 const ns = useNamespace('button')
 
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import './button.scss';
 </style>

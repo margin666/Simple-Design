@@ -1,27 +1,224 @@
+// success
+$success-default-bgc: #37E863;
+$success-default-border: #37E863;
+$success-default-font-color: #DCFDD7;
+
+$success-hover-bgc: #67F17C;
+$success-hover-border: #67F17C;
+$success-hover-font-color: #DCFDD7;
+
+$success-active-bgc: #28C75F;
+$success-active-border: #28C75F;
+$success-active-font-color: #DCFDD7;
+
+$success-text-font-color: #37E863;
+$success-text-bgc: #fff;
+$success-text-border: #fff;
+
+$success-text-hover-font-color: #DCFDD7;
+$success-text-hover-bgc: #67F17C;
+$success-text-hover-border: #67F17C;
+
+$success-text-active-font-color: #DCFDD7;
+$success-text-active-bgc: #28C75F;
+$success-text-active-border: #28C75F;
+
+// warning
+$warning-default-bgc: #FFD30F;
+$warning-default-border: #FFD30F;
+$warning-default-font-color: #FFF9CF;
+
+$warning-hover-bgc: #FFE14B;
+$warning-hover-border: #FFE14B;
+$warning-hover-font-color: #FFF9CF;
+
+$warning-active-bgc: #DBB10A;
+$warning-active-border: #DBB10A;
+$warning-active-font-color: #FFF9CF;
+
+$warning-text-font-color: #FFD30F;
+$warning-text-bgc: #fff;
+$warning-text-border: #fff;
+
+$warning-text-hover-font-color: #FFF9CF;
+$warning-text-hover-bgc: #FFE14B;
+$warning-text-hover-border: #FFE14B;
+
+$warning-text-active-font-color: #FFF9CF;
+$warning-text-active-bgc: #DBB10A;
+$warning-text-active-border: #DBB10A;
+
+
+// primary
+$primary-default-bgc: #3366FF;
+$primary-default-border: #3366FF;
+$primary-default-font-color: #D6E4FF;
+
+$primary-hover-bgc: #6690FF;
+$primary-hover-border: #6690FF;
+$primary-hover-font-color: #D6E4FF;
+
+$primary-active-bgc: #254EDB;
+$primary-active-border: #254EDB;
+$primary-active-font-color: #D6E4FF;
+
+$primary-text-font-color: #3366FF;
+$primary-text-bgc: #fff;
+$primary-text-border: #fff;
+
+$primary-text-hover-font-color: #D6E4FF;
+$primary-text-hover-bgc: #6690FF;
+$primary-text-hover-border: #6690FF;
+
+$primary-text-active-font-color: #D6E4FF;
+$primary-text-active-bgc: #254EDB;
+$primary-text-active-border: #254EDB;
+
+
+// danger
+$danger-default-bgc: #FF4B38;
+$danger-default-border: #FF4B38;
+$danger-default-font-color: #FFE7D7;
+
+$danger-hover-bgc: #FF8469;
+$danger-hover-border: #FF8469;
+$danger-hover-font-color: #FFE7D7;
+
+$danger-active-bgc: #DB2B28;
+$danger-active-border: #DB2B28;
+$danger-active-font-color: #FFE7D7;
+
+$danger-text-font-color: #FF4B38;
+$danger-text-bgc: #fff;
+$danger-text-border: #fff;
+
+$danger-text-hover-font-color: #FFE7D7;
+$danger-text-hover-bgc: #FF8469;
+$danger-text-hover-border: #FF8469;
+
+$danger-text-active-font-color: #FFE7D7;
+$danger-text-active-bgc: #DB2B28;
+$danger-text-active-border: #DB2B28;
+
+// info
+$info-default-bgc: #46BFFC;
+$info-default-border: #46BFFC;
+$info-default-font-color: #DAFBFE;
+
+$info-hover-bgc: #74D8FD;
+$info-hover-border: #74D8FD;
+$info-hover-font-color: #DAFBFE;
+
+$info-active-bgc: #3396D8;
+$info-active-border: #3396D8;
+$info-active-font-color: #DAFBFE;
+
+$info-text-font-color: #46BFFC;
+$info-text-bgc: #fff;
+$info-text-border: #fff;
+
+$info-text-hover-font-color: #DAFBFE;
+$info-text-hover-bgc: #74D8FD;
+$info-text-hover-border: #74D8FD;
+
+$info-text-active-font-color: #DAFBFE;
+$info-text-active-bgc: #3396D8;
+$info-text-active-border: #3396D8;
+
+
+// default
+$default-bgc: #fff;
+$default-border: #dcdfe6;
+$default-font-color: #606266;
+
+$hover-bgc: #668fff3b;
+$hover-border: #668fff3b;
+$hover-font-color: #3366FF;
+
+$active-bgc: #668fff3b;
+$active-border: #254EDB;
+$active-font-color: #3366FF;
+
+$text-font-color: #3366FF;
+$text-bgc: #fff;
+$text-border: #fff;
+
+$text-hover-font-color: #3366FF;
+$text-hover-bgc: #668fff3b;
+$text-hover-border: #668fff3b;
+
+$text-active-font-color: #254EDB;
+$text-active-bgc: #668fff3b;
+$text-active-border: #254EDB;
+
+
 .simple-button {
-    border-radius: 4px;
-    border: 1px solid #dcdfe6;
-    color: #606266;
+    border: 1px solid $default-border;
+    background-color: $default-bgc;
+    color: $default-font-color;
+    border-radius: 3px;
     cursor: pointer;
     text-align: center;
-    background-color: transparent;
+    user-select: none;
+    +.simple-button {
+        margin-left: 10px;
+    }
+
     &:hover {
-        background-color: rgb(238, 240, 255);
-        border-color: rgb(155, 161, 248);
-        color: #626aef;
+        color: $hover-font-color;
+        background-color: $hover-bgc;
+        border-color: $hover-border;
+        outline: none;
     }
+
     &:active {
-        background-color: #bbbefa;
+        background-color: $active-bgc;
+        border-color: $active-border;
+        color: $active-font-color;
     }
+
     &.is-text {
-        border-color: #dcdfe6;
+        background-color: $text-bgc;
+        border-color: $text-border;
+        color: $text-font-color;
+
         &:hover {
-            background-color: #dcdfe613;
+            background-color: $text-hover-bgc;
+            border-color: $text-hover-border;
+            color: $text-hover-font-color;
         }
+
         &:active {
-            background-color: #dcdfe63a;
+
+            background-color: $text-active-bgc;
+            border-color: $text-active-border;
+            color: $text-active-font-color;
+        }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $text-bgc;
+            border-color: $text-border;
+            color: $text-font-color;
         }
     }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $hover-bgc;
+        border-color: $hover-border;
+        color: $hover-font-color;
+    }
+
+    &.is-round {
+        border-radius: 20px;
+    }
+
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px;
+    }
+
 }
 
 
@@ -42,83 +239,265 @@
 }
 
 
-// type
-.simple-button--primary {
-    background-color: #626aef;
-    color: #fff;
-    border-color: #626aef;
-    &:hover {
-        color: white;
-        background-color: #7c82f0;
-        border-color: #7c82f0;
-        outline: none;
-    }
-    &:active {
-        background-color: rgb(82, 89, 195);
-        border-color: rgb(82, 89, 195);
-    }
-    &.is-text {
-        background-color: transparent;
-        border-color: transparent;
-        color: #626aef;
-        &:hover {
-            background-color: #6269ef18;
-        }
-        &:active {
-            background-color: #6269ef43;
-        }
-    }
-}
+
 .simple-button--danger {
-    background-color: #f56c6c;
-    color: #fff;
-    border-color: #f56c6c;
+    background-color: $danger-default-bgc;
+    color: $danger-default-font-color;
+    border-color: $danger-default-border;
+
     &:hover {
-        color: white;
-        background-color: #f89898;
-        border-color: #f89898;
+        color: $danger-hover-font-color;
+        background-color: $danger-hover-bgc;
+        border-color: $danger-hover-border;
         outline: none;
     }
+
     &:active {
-        background-color: #c45656;
-        border-color: #c45656;
+        background-color: $danger-active-bgc;
+        border-color: $danger-active-border;
+        color: $danger-active-font-color;
     }
+
     &.is-text {
-        background-color: transparent;
-        border-color: transparent;
-        color: #f56c6c;
+        background-color: $danger-text-bgc;
+        border-color: $danger-text-border;
+        color: $danger-text-font-color;
+
         &:hover {
-            background-color: #f56c6c1a;
+            background-color: $danger-text-hover-bgc;
+            border-color: $danger-text-hover-border;
+            color: $danger-text-hover-font-color;
         }
+
         &:active {
-            background-color: #f56c6c4b;
+
+            background-color: $danger-text-active-bgc;
+            border-color: $danger-text-active-border;
+            color: $danger-text-active-font-color;
         }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $danger-text-bgc;
+            border-color: $danger-text-border;
+            color: $danger-text-font-color;
+        }
+    }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $danger-hover-bgc;
+        border-color: $danger-hover-border;
+        color: $danger-hover-font-color;
     }
 }
 
 .simple-button--success {
-    background-color: #67c23a;
-    color: #fff;
-    border-color: #67c23a;
+    background-color: $success-default-bgc;
+    color: $success-default-font-color;
+    border-color: $success-default-border;
+
     &:hover {
-        color: white;
-        background-color: #95d475;
-        border-color: #95d475;
+        color: $success-hover-font-color;
+        background-color: $success-hover-bgc;
+        border-color: $success-hover-border;
         outline: none;
     }
+
     &:active {
-        background-color: #529b2e;
-        border-color: #529b2e;
+        background-color: $success-active-bgc;
+        border-color: $success-active-border;
+        color: $success-active-font-color;
     }
+
     &.is-text {
-        background-color: transparent;
-        border-color: transparent;
-        color: #67c23a;
+        background-color: $success-text-bgc;
+        border-color: $success-text-border;
+        color: $success-text-font-color;
+
         &:hover {
-            background-color: #95d47516;
+            background-color: $success-text-hover-bgc;
+            border-color: $success-text-hover-border;
+            color: $success-text-hover-font-color;
         }
+
         &:active {
-            background-color: #95d47547;
+
+            background-color: $success-text-active-bgc;
+            border-color: $success-text-active-border;
+            color: $success-text-active-font-color;
         }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $success-text-bgc;
+            border-color: $success-text-border;
+            color: $success-text-font-color;
+        }
+    }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $success-hover-bgc;
+        border-color: $success-hover-border;
+        color: $success-hover-font-color;
+    }
+}
+
+.simple-button--warning {
+    background-color: $warning-default-bgc;
+    color: $warning-default-font-color;
+    border-color: $warning-default-border;
+
+    &:hover {
+        color: $warning-hover-font-color;
+        background-color: $warning-hover-bgc;
+        border-color: $warning-hover-border;
+        outline: none;
+    }
+
+    &:active {
+        background-color: $warning-active-bgc;
+        border-color: $warning-active-border;
+        color: $warning-active-font-color;
+    }
+
+    &.is-text {
+        background-color: $warning-text-bgc;
+        border-color: $warning-text-border;
+        color: $warning-text-font-color;
+
+        &:hover {
+            background-color: $warning-text-hover-bgc;
+            border-color: $warning-text-hover-border;
+            color: $warning-text-hover-font-color;
+        }
+
+        &:active {
+
+            background-color: $warning-text-active-bgc;
+            border-color: $warning-text-active-border;
+            color: $warning-text-active-font-color;
+        }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $warning-text-bgc;
+            border-color: $warning-text-border;
+            color: $warning-text-font-color;
+        }
+    }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $warning-hover-bgc;
+        border-color: $warning-hover-border;
+        color: $warning-hover-font-color;
+    }
+}
+
+.simple-button--primary {
+    background-color: $primary-default-bgc;
+    color: $primary-default-font-color;
+    border-color: $primary-default-border;
+
+    &:hover {
+        color: $primary-hover-font-color;
+        background-color: $primary-hover-bgc;
+        border-color: $primary-hover-border;
+        outline: none;
+    }
+
+    &:active {
+        background-color: $primary-active-bgc;
+        border-color: $primary-active-border;
+        color: $primary-active-font-color;
+    }
+
+    &.is-text {
+        background-color: $primary-text-bgc;
+        border-color: $primary-text-border;
+        color: $primary-text-font-color;
+
+        &:hover {
+            background-color: $primary-text-hover-bgc;
+            border-color: $primary-text-hover-border;
+            color: $primary-text-hover-font-color;
+        }
+
+        &:active {
+
+            background-color: $primary-text-active-bgc;
+            border-color: $primary-text-active-border;
+            color: $primary-text-active-font-color;
+        }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $primary-text-bgc;
+            border-color: $primary-text-border;
+            color: $primary-text-font-color;
+        }
+    }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $primary-hover-bgc;
+        border-color: $primary-hover-border;
+        color: $primary-hover-font-color;
+    }
+}
+
+
+
+.simple-button--info {
+    background-color: $info-default-bgc;
+    color: $info-default-font-color;
+    border-color: $info-default-border;
+
+    &:hover {
+        color: $info-hover-font-color;
+        background-color: $info-hover-bgc;
+        border-color: $info-hover-border;
+        outline: none;
+    }
+
+    &:active {
+        background-color: $info-active-bgc;
+        border-color: $info-active-border;
+        color: $info-active-font-color;
+    }
+
+    &.is-text {
+        background-color: $info-text-bgc;
+        border-color: $info-text-border;
+        color: $info-text-font-color;
+
+        &:hover {
+            background-color: $info-text-hover-bgc;
+            border-color: $info-text-hover-border;
+            color: $info-text-hover-font-color;
+        }
+
+        &:active {
+
+            background-color: $info-text-active-bgc;
+            border-color: $info-text-active-border;
+            color: $info-text-active-font-color;
+        }
+
+        &.is-disabled {
+            cursor:not-allowed;
+            background-color: $info-text-bgc;
+            border-color: $info-text-border;
+            color: $info-text-font-color;
+        }
+    }
+
+    &.is-disabled {
+        cursor:not-allowed;
+        background-color: $info-hover-bgc;
+        border-color: $info-hover-border;
+        color: $info-hover-font-color;
     }
 }
