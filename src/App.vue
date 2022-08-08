@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  const ef = () => console.log(2)
 </script>
 
 <template>
@@ -20,11 +20,25 @@
     <SimButton disabled text type="success" size="small">123</SimButton>
     <SimButton disabled round type="success" size="small">123</SimButton>
     <SimButton disabled type="info" size="large">123</SimButton>
-    <SimButton disabled circle type="info" text size="large">woshi</SimButton>
+    <SimButton @click="ef" circle type="info" text size="large">woshi</SimButton>
   </div>
+  <SimRow>
+    <SimCol :span="12">
+      wqewq
+    </SimCol>
+    <SimCol :span="10">
+      wqewq
+    </SimCol>
+  </SimRow>
 </template>
 
 <style scoped>
+.svg {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: red;
+}
 .box {
   background-color: bisque;
 

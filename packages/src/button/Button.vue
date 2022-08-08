@@ -7,7 +7,7 @@
         ns.is('round', round),
         ns.is('circle', circle),
         ns.is('disabled', disabled),
-    ]" :aria-disabled="disabled" :disabled="disabled">
+    ]" :aria-disabled="disabled" :disabled="disabled" @click="handleClick">
         <span v-if="$slots.default">
             <slot></slot>
         </span>
@@ -24,42 +24,14 @@ export default {
 <script lang="ts" setup>
 import { useNamespace } from '../../utils/namespace'
 
-// import { defineProps } from 'vue'
-defineProps({
-    size: {
-        type: String,
-        default: 'default',
-        required: false,
-    },
-    type: {
-        type: String,
-        default: '',
-        required: false
-    },
-    text: {
-        type: Boolean,
-        default: false,
-        required: false
-    },
-    round: {
-        type: Boolean,
-        default: false,
-        required: false
-    },
-    circle: {
-        type: Boolean,
-        default: false,
-        required: false,
-    },
-    disabled: {
-        type: Boolean,
-        default: false,
-        required: false
-    }
-})
-
+import { props } from './props'
+defineProps(props)
+const emit = defineEmits(['click'])
 
 const ns = useNamespace('button')
+const handleClick = (event:Event) => {
+    emit('click', event)
+}
 
 
 </script>
