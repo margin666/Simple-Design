@@ -25,6 +25,6 @@ const prop = defineProps(props)
 const n = useNamespace('col')
 </script>
 
-<style lang="scss">
-@import './index.scss'
+<style lang="scss" scoped>
+@import './index.scss';
 </style>

@@ -1,29 +1,13 @@
-
-export const props = {
-    size: {
-        type: String,
-        default: 'default',
-        required: false,
-    },
+const prop = {
     type: {
         type: String,
         default: '',
         required: false
     },
-    text: {
-        type: Boolean,
-        default: false,
+    size: {
+        type: String,
+        default: 'default',
         required: false
-    },
-    round: {
-        type: Boolean,
-        default: false,
-        required: false
-    },
-    circle: {
-        type: Boolean,
-        default: false,
-        required: false,
     },
     disabled: {
         type: Boolean,
@@ -31,3 +15,4 @@ export const props = {
         required: false
     }
 }
+export default prop
