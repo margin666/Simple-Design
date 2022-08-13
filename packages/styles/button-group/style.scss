@@ -1,0 +1,26 @@
+$namespace: simple;
+
+.#{$namespace}-button-group {
+    width: fit-content;
+    padding: 12px 16px;
+    border-radius: 12px; // 圆角
+    overflow: hidden; // 超出隐藏
+    background-color: #e2e6eb; // 背景色
+    box-shadow: -10px -10px 15px #f5f9fd, 10px 10px 15px #d8dbe5;
+    .simple-button:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+    .simple-button:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+    .simple-button {
+        border-radius: 0;
+        
+        + & {
+            margin: 0;
+        }
+    }
+   
+}

@@ -1,3 +1,4 @@
+type Tsize = 'small' | 'default' | '' | 'large'
 const prop = {
     type: {
         type: String,
@@ -6,8 +7,10 @@ const prop = {
     },
     size: {
         type: String,
-        default: 'default',
-        required: false
+        default (prop){
+            return prop.size === 'default'?'':prop.size
+        },
+        required: false,
     },
     disabled: {
         type: Boolean,

@@ -1,0 +1,8 @@
+@mixin boxShadow($color, $bg-color, $shadow-color1, $shadow-color2){
+    color: $color;
+    background-color: $bg-color;
+    box-shadow: inset 8px 8px 6px $shadow-color2,
+        inset -5px -5px 15px $shadow-color1,
+        inset -5px -5px 15px $shadow-color1,
+        inset 7px 7px 6px $shadow-color2;
+}
