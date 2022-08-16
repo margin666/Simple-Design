@@ -1,14 +1,12 @@
 <template>
-    <div ref="tabs" :class="[
+    <div ref="tabs" @click="handleClick" :class="[
         ns.b(),
         ns.m(size)
     ]">
-        <!-- <div :class="[
+        <slot></slot>
+        <div :class="[
             ns.e('zz'),
-            ns.em('zz', size)
-        ]" :style="{ width: pWidth, left: pLeft }"></div> -->
-
-        <slot bs="2"></slot>
+        ]" :style="{width:pWidth + 'px', left: pLeft + 'px'}">&nbsp;</div>
             <!-- <p>{{pro.nam}}</p>
             <slot v-if="$slots.default"></slot> -->
 
@@ -23,42 +21,39 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import SEvent from '../events/events';
 import { useNamespace } from '../../utils/namespace';
 import props from './props'
-import { ref, nextTick, computed } from 'vue'
+import { ref, useSlots} from 'vue'
 defineProps(props)
 const ns = useNamespace('tabs')
 const tabs = ref<HTMLDivElement>()
-const pWidth = computed(() => {
-    return (tabs.value?.querySelectorAll('span')[1].offsetWidth || 0) + 30 + 'px'
-})
-const pLeft = computed(() => {
-    // console.log(tabs.value?.querySelectorAll('span')[0].offsetWidth)// 32 32 16 16
-    return (tabs.value?.querySelectorAll('span')[0].offsetWidth || 0) + 96 + 'px'
-})
-nextTick(() => {
-    // console.log(tabs.value?.querySelectorAll('span')[1].offsetWidth)
-})
-const emit = defineEmits(['table-click'])
+// const pWidth = computed(() => {
+//     return (tabs.value?.querySelectorAll('div')[0].offsetWidth || 0) + 30 + 'px'
+// })
+// const pLeft = computed(() => {
+//     // console.log(tabs.value?.querySelectorAll('div')[0].offsetWidth)// 32 32 16 16
+//     return (tabs.value?.querySelectorAll('div')[0].offsetWidth || 0) + 96 + 'px'
+// })
+const pLeft = ref<Number>(0)
+const pWidth = ref<Number>(0)
+const instance = SEvent.getInstance()
+const emit = defineEmits(['tab-click'])
 
 
-const handleClick = (e: MouseEvent) => {
-    
-    emit('table-click')
-    // if(slots === undefined)return
-    // const vnodes = slots()
+const slot = useSlots()
+const handleClick = (e:MouseEvent) => {
+    if(slot.default){
+         console.log(slot.default())
+    }
     // const target = e.target as HTMLElement
-    // const m = vnodes.find(vnode => {
-    //     if('label' in vnode.props!){
-    //         return vnode.props.label === target.innerText
-    //     }else{
-    //         const children = vnode.children!
-    //         const text = children.default()[0].children
-    //         return text === target.innerText
-    //     }
-    // })
-
-    // // console.log(slots()[2].children.default())
-    // emit('click', m!.props!.name ?? 0 , 2)
+    // if(target === tabs.value)return
+    // const data = instance.getData()
+    // pWidth.value = target.clientWidth + 32
+    // // console.log(getWidth(target))
+    // pLeft.value = target.offsetLeft - 16
+    // emit('tab-click', ...data, e)
 }
+
+
 </script>

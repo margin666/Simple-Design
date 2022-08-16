@@ -11,7 +11,7 @@ $namespace: simple;
     position: relative;
     display: flex;
     align-items: center;
-
+    
 
 }
 
@@ -20,16 +20,18 @@ $namespace: simple;
     border: 0;
     font-weight: 600;
     border-radius: 12px;
-    font-size: 14px;
-    padding: 8px 15px;
+    padding: 8px 16px;
+    // margin: 0 10px;
     cursor: pointer;
     float: right;
     position: absolute;
     left: 16px;
     top: 12px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     @include boxShadow(#444, rgba(255, 255, 255, 0), #f5f9fd, #d9dce6);
     &--default {
         // width: 100px;
         height: 38px;
     }
+    
 }

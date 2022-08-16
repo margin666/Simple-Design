@@ -8,5 +8,10 @@ export default {
         type: Number,
         default: 0,
         required: false
+    },
+    event: {
+        type: Function,
+        default: () => {},
+        required: false
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div ref="role" @click="handleClick" :class="[
+    <div @click="handleClick" :class="[
         ns.b(),
     ]">
         <slot v-if="$slots.default"></slot>
@@ -16,22 +16,27 @@ export default {
 
 <script lang="ts" setup>
 import { useNamespace } from '../../utils/namespace';
-import {ref} from 'vue'
+import SEvent from '../events/events';
+import {useSlots} from 'vue'
 import props from './props'
 const prop = defineProps(props)
 const ns = useNamespace('tab')
-const role = ref<HTMLDivElement>()
-const ret = () => {
-    return prop
-}
+
+const instance = SEvent.getInstance()
+
+
+const slot = useSlots()
+
 
 const handleClick = () => {
-    console.log(role.value)
+    // console.
+    
+    instance.setData(prop.name)
+    
 }
 
-defineExpose({
-    ret
-})
+
+
 
 
 </script>
