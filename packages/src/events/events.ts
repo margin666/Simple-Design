@@ -1,8 +1,13 @@
 class SEvent{
     private static instance: SEvent;
-    private temp: Array<any>;
+    private fn: Function | null;
+    static $el:Map<string|number, HTMLElement>;
+    private el:HTMLElement | undefined;
+    static active: string | number;
     private constructor(){
-        this.temp = []
+        this.fn = null;
+        SEvent.$el = new Map();
+        SEvent.active = 0;
     }
 
     static getInstance(){
@@ -12,13 +17,26 @@ class SEvent{
         return this.instance
     }
 
-    setData(arg:string){
-        this.temp.length = 0
-        this.temp.push(arg)
+    add(fn:Function, active: number|string){
+        this.fn = fn
+        SEvent.active = active
+        console.log(SEvent.$el.get(active))
+        this.el = SEvent.$el.get(active)
     }
-    getData(){
-        return this.temp
+    emit(name: string|number){
+        if(this.fn){
+            this.el = SEvent.$el.get(name)
+            SEvent.active = name
+            this.fn(name, this.el) 
+        }
     }
+    getel(){
+        return this.el
+    }
+    setel(key:string|number, el:HTMLElement){
+        SEvent.$el.set(key, el)
+    }
+
 }
 
 

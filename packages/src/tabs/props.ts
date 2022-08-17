@@ -5,8 +5,8 @@ export default {
         required: false
     },
     active: {
-        type: Number,
-        default: 0,
+        type: String,
+        default: '',
         required: false
     },
     event: {

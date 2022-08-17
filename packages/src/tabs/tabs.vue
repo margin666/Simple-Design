@@ -6,8 +6,8 @@
         <slot></slot>
         <div :class="[
             ns.e('zz'),
-        ]" :style="{width:pWidth + 'px', left: pLeft + 'px'}">&nbsp;</div>
-            <!-- <p>{{pro.nam}}</p>
+        ]" :style="{ width: pWidth + 'px', left: pLeft + 'px' }">&nbsp;</div>
+        <!-- <p>{{pro.nam}}</p>
             <slot v-if="$slots.default"></slot> -->
 
     </div>
@@ -24,35 +24,34 @@ export default {
 import SEvent from '../events/events';
 import { useNamespace } from '../../utils/namespace';
 import props from './props'
-import { ref, useSlots} from 'vue'
-defineProps(props)
+import { onMounted, ref, useSlots } from 'vue'
+import { computed } from '@vue/reactivity';
+const prop = defineProps(props)
 const ns = useNamespace('tabs')
 const tabs = ref<HTMLDivElement>()
-// const pWidth = computed(() => {
-//     return (tabs.value?.querySelectorAll('div')[0].offsetWidth || 0) + 30 + 'px'
-// })
-// const pLeft = computed(() => {
-//     // console.log(tabs.value?.querySelectorAll('div')[0].offsetWidth)// 32 32 16 16
-//     return (tabs.value?.querySelectorAll('div')[0].offsetWidth || 0) + 96 + 'px'
-// })
+
 const pLeft = ref<Number>(0)
 const pWidth = ref<Number>(0)
 const instance = SEvent.getInstance()
-const emit = defineEmits(['tab-click'])
 
+
+onMounted(() => {
+    instance.add(prop.event, prop.active)
+
+    const target = instance.getel()
+    // console.log(target)
+    // pWidth.value = target!.clientWidth + 32
+    // pLeft.value = target!.offsetLeft - 16
+
+
+})
 
 const slot = useSlots()
-const handleClick = (e:MouseEvent) => {
-    if(slot.default){
-         console.log(slot.default())
-    }
-    // const target = e.target as HTMLElement
-    // if(target === tabs.value)return
-    // const data = instance.getData()
-    // pWidth.value = target.clientWidth + 32
-    // // console.log(getWidth(target))
-    // pLeft.value = target.offsetLeft - 16
-    // emit('tab-click', ...data, e)
+const handleClick = (e: MouseEvent) => {
+    if (e.target === tabs.value) return
+    const target = instance.getel()
+    pWidth.value = target!.clientWidth + 32
+    pLeft.value = target!.offsetLeft - 16
 }
 
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const handleActive = (name:string, e:MouseEvent) => {
-  // console.log(name)
-  // console.log(e)
+const handleActive = (name:string, e:HTMLElement) => {
+  console.log(name)
+  console.log(e)
 }
 </script>
 
@@ -21,8 +21,8 @@ const handleActive = (name:string, e:MouseEvent) => {
     <SimButton type="primary">success3</SimButton>
     <SimButton type="danger">success3</SimButton>
   </SimButtonGroup>
-  <SimTabs :event="handleActive">
-      <SimTab name="123">123</SimTab>
+  <SimTabs :event="handleActive" active="中NSA">
+      <SimTab name="中NSA按">123</SimTab>
       <SimTab name="7">7</SimTab>
       <SimTab label="eee" name="444">12332</SimTab>
 
