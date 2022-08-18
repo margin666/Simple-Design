@@ -2,7 +2,7 @@ export default {
     name: {
         type: String,
         default:'',
-        require: false
+        require: true
     },
     label: {
         type: String,

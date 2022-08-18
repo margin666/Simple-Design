@@ -3,35 +3,46 @@ $namespace: simple;
 
 .#{$namespace}-tabs {
     width: fit-content;
-    padding: 12px 16px;
-    border-radius: 12px; // 圆角
     overflow: hidden; // 超出隐藏
     background-color: #e2e6eb; // 背景色
-    box-shadow: -10px -10px 15px #f5f9fd, 10px 10px 15px #d8dbe5;
     position: relative;
     display: flex;
     align-items: center;
-    
+}
 
+.#{$namespace}-tabs--default {
+    padding: 8px 4px;
+    border-radius: 8px; // 圆角
+    box-shadow: -10px -10px 15px #f5f9fd, 10px 10px 15px #d8dbe5;
+}
+
+.#{$namespace}-tabs--small {
+    padding: 6px 2px;
+    border-radius: 6px; // 圆角
+    box-shadow: -8px -8px 12px #f5f9fd, 8px 8px 12px #d8dbe5;
 }
 
 .#{$namespace}-tabs__zz {
     pointer-events: none;
     border: 0;
-    font-weight: 600;
-    border-radius: 12px;
-    padding: 8px 16px;
-    // margin: 0 10px;
     cursor: pointer;
     float: right;
     position: absolute;
-    left: 16px;
-    top: 12px;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     @include boxShadow(#444, rgba(255, 255, 255, 0), #f5f9fd, #d9dce6);
+
     &--default {
-        // width: 100px;
-        height: 38px;
+        // padding: 8px 16px;
+        height: 26px;
+        top: 8px;
+        border-radius: 8px;
     }
-    
+
+    &--small {
+        // padding: 8px 0px;
+        height: 24px;
+        top: 4px;
+        border-radius: 6px;
+    }
+
 }

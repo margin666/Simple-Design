@@ -1,19 +1,20 @@
 <script setup lang="ts">
-const handleActive = (name:string, e:HTMLElement) => {
+const handleActive = (name:string, label:string, e:HTMLElement) => {
   console.log(name)
+  console.log(label)
   console.log(e)
 }
 </script>
 
 <template>
   <div class="box">
-    <!-- <SimButton disabled>default</SimButton>
+    <SimButton disabled>default</SimButton>
     <SimButton disabled size="small" type="danger">danger</SimButton>
     <SimButton disabled size="default" type="warning">warning</SimButton>
     <SimButton disabled size="large" type="success">success</SimButton>
     <SimButton size="large" type="success">success</SimButton>
     <SimButton type="info" disabled>info</SimButton>
-    <SimButton type="primary" disabled>primary</SimButton> -->
+    <SimButton type="primary" disabled>primary</SimButton>
   </div>
   <SimButtonGroup type="primary" size="small">
     <SimButton type="success">success</SimButton>
@@ -21,11 +22,14 @@ const handleActive = (name:string, e:HTMLElement) => {
     <SimButton type="primary">success3</SimButton>
     <SimButton type="danger">success3</SimButton>
   </SimButtonGroup>
-  <SimTabs :event="handleActive" active="中NSA">
-      <SimTab name="中NSA按">123</SimTab>
-      <SimTab name="7">7</SimTab>
-      <SimTab label="eee" name="444">12332</SimTab>
-
+  <SimTabs @on-click="handleActive" size="small" active="jerry">
+      <SimTab name="jerry">jerry</SimTab>
+      <SimTab name="tom">tom</SimTab>
+  </SimTabs>
+  <SimTabs @on-click="handleActive" size="default" active="bbb">
+      <SimTab name="aaa">AAA</SimTab>
+      <SimTab name="bbb">BBB</SimTab>
+      <SimTab label="eee" name="ccc">CCC</SimTab>
   </SimTabs>
   <!-- <SimRow>
     <SimCol :span="12">

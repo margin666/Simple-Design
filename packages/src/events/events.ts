@@ -1,43 +1,65 @@
-class SEvent{
-    private static instance: SEvent;
-    private fn: Function | null;
-    static $el:Map<string|number, HTMLElement>;
-    private el:HTMLElement | undefined;
-    static active: string | number;
-    private constructor(){
-        this.fn = null;
-        SEvent.$el = new Map();
-        SEvent.active = 0;
-    }
+export interface tempObj{
+    name?: string;
+    label?: string;
+}
 
-    static getInstance(){
-        if(!this.instance){
-            this.instance = new SEvent()
-        }
-        return this.instance
+export class Tabs{
+    tabs: Map<HTMLElement, tempObj>;
+    size: string;
+    constructor(){
+        this.tabs = new Map();
+        this.size = '';
     }
-
-    add(fn:Function, active: number|string){
-        this.fn = fn
-        SEvent.active = active
-        console.log(SEvent.$el.get(active))
-        this.el = SEvent.$el.get(active)
+    add(e: HTMLElement, obj:tempObj){
+        this.tabs.set(e, obj)
     }
-    emit(name: string|number){
-        if(this.fn){
-            this.el = SEvent.$el.get(name)
-            SEvent.active = name
-            this.fn(name, this.el) 
-        }
+    get(e:HTMLElement){
+        return this.tabs.get(e)
     }
-    getel(){
-        return this.el
-    }
-    setel(key:string|number, el:HTMLElement){
-        SEvent.$el.set(key, el)
+    setSize(size: string){
+        this.size = size
     }
 
 }
 
 
-export default SEvent
+
+
+export function rtype(target:any){
+    return /\s(\w+)\]/.exec(Object.prototype.toString.call(target))![1].toLowerCase()
+}
+
+export function deepCopy(target:any, map = new Map()){
+    if(typeof target !== 'object' || typeof target !== 'function'){
+        return target
+    }else{
+        const t = rtype(target)
+        if(t === 'object'){
+            if(map.has(target)){
+                return map.get(target)
+            }
+            const obj = Object.create(target.__proto__)
+            map.set(target, obj)
+            for(let key in target){
+                obj[key] = deepCopy(target[key], map)
+            }
+            return obj
+        }
+        if(t === 'map'){
+            const m = new Map()
+            for(let item of target){
+                m.set(item[0], deepCopy(item[1]))
+            }
+            return m
+        }
+        if(t === 'array'){
+            return target.map(el => deepCopy(el))
+        }
+    }
+}
+
+
+
+
+
+

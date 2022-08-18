@@ -3,16 +3,27 @@ $namespace: simple;
 
 .#{$namespace}-tab {
     // background-color: #f90;
-    padding: 12px 0;
-    font-size: 14px;
-    line-height: 14px;
+
     cursor: pointer;
     user-select: none;
-    + & {
-        margin:0 16px;
-    }
+
     
 }
 
+.#{$namespace}-tab--default {
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 14px;
+    +& {
+        margin: 0 12px;
+    }
+}
 
-
+.#{$namespace}-tab--small {
+    padding: 4px 0;
+    font-size: 12px;
+    line-height: 12px;
+    +& {
+        margin: 0 10px;
+    }
+}

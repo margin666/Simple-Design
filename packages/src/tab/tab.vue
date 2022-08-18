@@ -1,9 +1,9 @@
 <template>
-    <div ref="tab" @click="handleClick" :class="[
+    <div ref="tab" :class="[
         ns.b(),
+        ns.m(m.size),
     ]">
         <slot v-if="$slots.default"></slot>
-        
     </div>
 </template>
 
@@ -16,28 +16,23 @@ export default {
 
 <script lang="ts" setup>
 import { useNamespace } from '../../utils/namespace';
-import SEvent from '../events/events';
-import {onMounted, useSlots, ref, nextTick} from 'vue'
+import {Tabs} from '../events/events'
+import { onMounted, useSlots, ref, inject } from 'vue'
 import props from './props'
 const prop = defineProps(props)
 const ns = useNamespace('tab')
-
-const instance = SEvent.getInstance()
-
-
 const slot = useSlots()
 const tab = ref<HTMLDivElement>()
 
+const m = inject<Tabs>('tabs')!
+
+
 onMounted(() => {
-    instance.setel(prop.name, tab.value!)
+    m.add(tab.value!, {
+        name: prop.name,
+        label: prop.label
+    })
+
 })
-const handleClick = () => {
-    instance.emit(prop.name)
-    
-}
-
-
-
-
 
 </script>
