@@ -4,12 +4,16 @@ const handleActive = (name:string, label:string, e:HTMLElement) => {
   console.log(label)
   console.log(e)
 }
+
+const handleClick = (e:MouseEvent) => {
+  console.log(e)
+}
 </script>
 
 <template>
   <div class="box">
-    <SimButton disabled>default</SimButton>
-    <SimButton disabled size="small" type="danger">danger</SimButton>
+    <SimButton @click="handleClick">default</SimButton>
+    <SimButton size="small" type="danger">danger</SimButton>
     <SimButton disabled size="default" type="warning">warning</SimButton>
     <SimButton disabled size="large" type="success">success</SimButton>
     <SimButton size="large" type="success">success</SimButton>

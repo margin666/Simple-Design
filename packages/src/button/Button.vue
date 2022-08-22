@@ -8,10 +8,14 @@
         ]"
         :disabled="disabled"
         :aria-disabled="disabled"
+        @click="handleClick"
     >
-        <slot v-if="$slots.default">
+        <span v-if="$slots.default">
+            <slot>
 
         </slot>
+        </span>
+        
     </button>
     
 
@@ -33,6 +37,13 @@ const prop = defineProps(props)
 const ns = useNamespace('button')
 const _type = computed(() => prop.type || ButtonGroupPrors?.type || '')
 const _size = computed(() => prop.size || ButtonGroupPrors?.size || 'default')
+
+
+const emit = defineEmits(['click'])
+
+const handleClick = (e:MouseEvent) => {
+    emit('click', e)
+}
 
 </script>
 
