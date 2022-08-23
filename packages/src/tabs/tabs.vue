@@ -36,9 +36,6 @@ const pWidth = ref<Number>(0)
 const a = new Tabs()
 provide<Tabs>('tabs',a )
 
-
-
-
 const emit = defineEmits(['on-click'])
 onBeforeMount(() => {
         a.setSize(prop.size)

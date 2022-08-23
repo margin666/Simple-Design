@@ -16,6 +16,11 @@ const prop = {
         type: Boolean,
         default: false,
         required: false
-    }
+    },
+    style: {
+        type: Object,
+        default: {},
+        required: false,
+    },
 }
 export default prop

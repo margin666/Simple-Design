@@ -1,8 +1,8 @@
 <template>
     <div
-            :class="[
-              ns.b(),  
-            ]"
+        :class="[
+            ns.b(),  
+        ]"
     >
         <slot></slot>
     </div>

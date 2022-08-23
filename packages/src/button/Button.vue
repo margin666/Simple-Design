@@ -9,6 +9,7 @@
         :disabled="disabled"
         :aria-disabled="disabled"
         @click="handleClick"
+        :style="style"
     >
         <span v-if="$slots.default">
             <slot>

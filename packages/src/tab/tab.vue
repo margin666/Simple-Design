@@ -9,7 +9,6 @@
 
 <script lang="ts">
 export default {
-
     name: 'SimTab'
 }
 </script>
